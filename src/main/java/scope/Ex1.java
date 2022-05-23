@@ -46,13 +46,18 @@ public class Ex1 {
 //      System.out.println(this.x); }
 //  }
 //
-  {
-    int x;
-    Predicate<String> ps = x -> true;
-  }
+//  {
+//    int x;
+////    Predicate<String> ps = new Predicate<>() {
+////      public boolean test(String x) {return true; }
+////    };
+//    Predicate<String> ps = x -> true;
+//  }
 //
-//  for (int x = 0; x < 10; x++)
-//  ;
-//  int x;
+  void doStuff() {
+    for (int x = 0; x < 10; x++)
+      ;
+    int x;
+  }
 
 }
