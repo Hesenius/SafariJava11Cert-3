@@ -19,7 +19,7 @@ Q) Which are legal:
      var x = { 1, 2, 3 };
    }
 
-Q) Which are legal: ( 10, 3, 1, 7, 1 )
+Q) Which are legal:
 
    A) void doStuff() { var x = new int[]{ 1, 2, 3 }; }
    B) void doStuff() { var [] x = new int[]{ 1, 2, 3 }; }
@@ -48,3 +48,23 @@ Q) Which are legal (13, 8, 8)
        }
     C)
        var var = "var";
+
+Q) Which are legal:
+   A) { int x; }
+      { int x; }
+   B) class X {
+        { sout(x); }
+        int x;
+      }
+   C) {
+        int x;
+        { int x; }
+      }
+   D) {
+        int x;
+        Predicate<String> ps = x -> true;
+      }
+
+   E) for (int x = 0; x < 10; x++)
+        ;
+       int x;
