@@ -152,6 +152,75 @@ C) method C is invoked
 D) method D is invoked
 E) method E is invoked
 
+Q) Given
+class AC implements AutoCloseable {
+  private String name;
+  public AC(String name) { this.name = name; }
+  @Override public void close() { System.out.println("Closing " + name);} }
+And:
+    var ac0 = new AC("zero");
+    try (var ac1 = new AC("one");
+        var ac2 = new AC("two");
+        ac0;){}
+What is the result?
+A) Compilation fails
+B) Closing zero Closing two Closing one
+C) Closing zero Closing one Closing two
+D) Closing two Closing one Closing zero
+E) Closing one Closing two Closing zero
 
-A) four ten minute breaks please
-B) two ten minute breaks, and a longer one in the middle
+Q) Given
+ void doStuff() throws SQLException {};
+ void doStuff2() throws FileNotFoundException {};
+And:
+ void tryStuff() ...insert here... {
+   try {
+     doStuff();
+     doStuff2();
+   } catch (SQLException | FileNotFoundException e) {
+     throw e;
+   }
+ }
+
+What is best at "...insert here..."?
+A) throws Exception
+B) throws SQLException
+C) throws FileNotFoundException
+D) throws FileNotFoundException, SQLException
+E) nothing is needed, compilation succeeds as is
+
+Q) enum Day {
+     MONDAY(1), TUESDAY;
+     public Day(int d) {}
+     public Day() {}
+   }
+and:
+sout(Day.MONDAY)
+
+What is the result?
+A) 1
+B) MONDAY
+C) Day.MONDAY
+D) Exception at runtime
+E) Compilation fails
+
+Q) enum Day {
+     MONDAY(1), TUESDAY;
+     public Day(int d) {}
+     public Day() {}
+   }
+and:
+enum LabeledDay extends Day {
+    WEEKEND(6, "Yay!");
+    private LabeledDay(int ord, String name) {
+      super(ord);
+    }
+}
+sout(LabeledDay.WEEKEND)
+What is the result?
+A) 6
+B) MONDAY
+C) Day.MONDAY
+D) Exception at runtime
+E) Compilation fails
+
