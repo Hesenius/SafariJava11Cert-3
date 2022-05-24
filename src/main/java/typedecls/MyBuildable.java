@@ -1,10 +1,25 @@
 package typedecls;
 
 public class MyBuildable {
+  private String name;
+  private String address;
+
   public static class MyBuilder {
-    public ??? name(String n) {}
-    public ??? address(String a) {}
-    public MyBuildable build() {}
+    MyBuildable self = new MyBuildable();
+    public MyBuilder name(String n) {
+      self.name = n;
+      return this;
+    }
+    public MyBuilder address(String a) {
+      self.address = a;
+      return this;
+    }
+    public MyBuildable build() {
+      // validate!!!!
+      MyBuildable rv = self;
+      self = null;
+      return rv;
+    }
   }
 
   public static MyBuilder builder() {

@@ -264,3 +264,28 @@ B) in sub constructor x is 4   in default constructor, x is 4
 C) in sub constructor x is 99   in default constructor, x is 99
 D) Compilation fails
 E) An exception is thrown
+
+Q) Given:
+ interface StudentCriterion {
+   boolean test(Student s);
+ }
+
+and:
+ class Student {
+   public int getGpa() { return 0; }
+   public List<String> getCourses() { return null; }
+ }
+
+Which are legal (individually):
+A) StudentCriterion sc = Student s -> { return s.getGpa() > 3;};
+B) StudentCriterion sc = s -> { s.getGpa() > 3 };
+C) Object sc = s -> {return s.getGpa() > 3;};
+D) StudentCriterion sc = (s) -> s.getGpa() > 3;
+E) StudentCriterion sc = s -> s.getCourses().size();
+
+Q)   Which are legal individually:
+A) Function<String, String> fss = s -> { System.out.println(s); };
+B) Consumer<String> cs = s -> { System.out.println(s); };
+C) Supplier<String> ss = (s1, s2) -> s1 + s2;
+D) BiPredicate<String> bps = (String s) -> { return s.length() > 0; };
+E) ToIntFunction<String> tofs = s -> s.length();
