@@ -128,6 +128,30 @@ Q)
     void doStuff(int ... x) {}            // Method D
     void doStuff(Integer x, Integer y) {} // Method E
 
-
   Given all five methods exist, which is invoked by the invocation
       doStuff(1, 2);
+
+Q) if method A is removed, what happens?
+A) compilation fails
+B) method B is invoked
+C) method C is invoked
+D) method D is invoked
+E) method E is invoked
+
+Q) if methods A and B are removed, what happens?
+A) compilation fails
+B) runtime exception
+C) method C is invoked
+D) method D is invoked
+E) method E is invoked
+
+Q) if methods A, B, and C are removed, what happens?
+A) compilation fails
+B) a small explosion
+C) method C is invoked
+D) method D is invoked
+E) method E is invoked
+
+
+A) four ten minute breaks please
+B) two ten minute breaks, and a longer one in the middle
