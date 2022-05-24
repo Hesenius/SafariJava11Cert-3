@@ -224,3 +224,43 @@ C) Day.MONDAY
 D) Exception at runtime
 E) Compilation fails
 
+Q)   class Q25Base {
+       int x = 99;
+       { System.out.println("x is " + x); }
+     }
+     class Q25Sub extends Q25Base {
+       Q25Sub(int x) {
+        /* implicit */ super();
+        System.out.println("in constructor, x is " + x); }
+       public static void go() {
+         new Q25Sub(1);
+       }
+     }
+
+Given a call to go(), what is the result?
+A) in constructor, x is 1
+  x is 99
+B) x is 99
+  in constructor, x is 1
+C) x is 99
+  in constructor, x is 99
+D) Compilation fails
+
+Q)   class Q27Base { int x = 99; }
+     class Q27Sub extends Q27Base {
+       Q27Sub() {
+         super(); this(4);
+         System.out.println("in sub constructor, x is " + x);
+       }
+       Q27Sub(int x) {
+         System.out.println("in default constructor, x is " + x);
+       }
+     }
+Given a call to:
+new Q27Sub();
+What is the result?
+A) in sub constructor x is 99  in default constructor, x is 4
+B) in sub constructor x is 4   in default constructor, x is 4
+C) in sub constructor x is 99   in default constructor, x is 99
+D) Compilation fails
+E) An exception is thrown
