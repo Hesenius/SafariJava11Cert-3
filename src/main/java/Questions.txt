@@ -289,3 +289,39 @@ B) Consumer<String> cs = s -> { System.out.println(s); };
 C) Supplier<String> ss = (s1, s2) -> s1 + s2;
 D) BiPredicate<String> bps = (String s) -> { return s.length() > 0; };
 E) ToIntFunction<String> tofs = s -> s.length();
+
+Q)   Which are correct declarations?
+A) Comparator<String> cs = s1, s2 -> s2.compareTo(s1);
+B) Comparator<String> cs = (s1, s2) -> s2.compareTo(s1);
+C) Comparator<String> cs = (var s1, String s2) -> s2.compareTo(s1);
+D) Comparator<String> cs = (var s1, s2) -> s2.compareTo(s1);
+E) Comparator<String> cs = (String s1, String s2) -> s2.compareTo(s1);
+
+Q)  Given:
+    ???? (s, t) -> s.length() - t.length();
+
+Which are correct inserted in place of ????
+A) BiFunction<String, String, Integer> f =
+B) BiPredicate<String> f =
+C) Comparator<String> f =
+D) Supplier<String, Integer> f =
+E) BinaryOperator<String> f =
+
+Q) Given:
+ public static Predicate<String> getOne(int x) {
+   return new Predicate<String>() {
+     @Override public boolean test(String s) {
+       return s.length() >= ++x;
+     }};}
+and:
+ public static void main(String[] args) {
+   System.out.println(
+       List.of("Fred", "Jim", "Sheila")
+           .removeIf(getOne(3)));
+ }
+What is the result?
+A) true
+B) [Fred, Jim]
+C) [Jim]
+D) Compilation fails
+E) Exception at runtime
