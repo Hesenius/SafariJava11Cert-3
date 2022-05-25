@@ -359,3 +359,43 @@ D) doBaseStuff in Sub can be marked throws RuntimeException without
    causing errors
 E) if doBaseStuff in Base were marked throws Exception, then doBaseStuff
    in Sub can be marked throws IOException without causing errors
+
+Q) Given:
+class Q24Base {
+   public int get() {
+     return 0;
+   }
+ }
+
+class Q24Sub extends Q24Base {}
+
+Which methods may individually be added to this class?
+A) public long get() { return 1; }
+B) public short get() { return 1; }
+C) public Q24Base get() { return null; }
+D) None of these
+
+Q)  Given:
+StringBuilder sb1 = new StringBuilder("Hello");
+StringBuilder sb2 = sb1;
+sb1 = null;
+// here
+
+Which is true "here"?
+A) sb1 is unreferenced and eligible for GC
+B) sb1 and sb2 are unreferenced and eligible for GC
+C) No objects are eligible for GC
+
+Q)   Given:
+ public static void main(String[] args) {
+
+   StringBuilder sb1 = new StringBuilder("Hello");
+   StringBuilder sb2 = new StringBuilder("World");
+   sb1 = null;
+   sb2 = sb1;
+ }
+
+Which is true?
+A) Object containing "Hello" is unreferenced and eligible for GC
+B) Object containing "World" is unreferenced and eligible for GC
+C) No objects are eligible for GC
